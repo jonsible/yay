@@ -7,7 +7,11 @@ Role to install yay
 
 ## Requirements
 
-None.
+You need to install the ansible-aur module on your ansible control node :
+
+```bash
+git clone https://github.com/kewlfft/ansible-aur.git ~/.ansible/plugins/modules/aur
+```
 
 ## Role Variables
 
