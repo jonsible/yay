@@ -1,0 +1,23 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint: |
+  yamllint .
+  ansible-lint
+  flake8
+platforms:
+  - name: archlinux-latest
+    image: jonsible/archlinux:latest
+    env:
+      container: docker
+provisioner:
+  name: ansible
+  env:
+    # yamllint disable-line rule:line-length
+    ANSIBLE_STRATEGY_PLUGINS: /opt/mitogen-0.2.9/ansible_mitogen/plugins/strategy
+    ANSIBLE_STRATEGY: mitogen_linear
+    ANSIBLE_PIPELINING: true
+verifier:
+  name: ansible
