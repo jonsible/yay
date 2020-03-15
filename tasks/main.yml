@@ -1,5 +1,6 @@
 ---
 - name: Updating cache
+  become: true
   pacman:
     update_cache: true
   tags:
