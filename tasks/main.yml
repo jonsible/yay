@@ -11,6 +11,10 @@
   pacman:
     name: base-devel
 
+- name: Setting aur_user globally
+  set_fact:
+    aur_user: aur_builder
+
 - name: Creating aur_builder
   become: true
   user:
